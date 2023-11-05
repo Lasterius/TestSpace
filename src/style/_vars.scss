@@ -1,0 +1,13 @@
+$text: #fff;
+$texthvr: #c2ab81;
+$btnhvr: #e3ba6d;
+$back: #131313;
+$cardsclr: #171717;
+
+@mixin font($fs, $fw, $lh) {
+	font-size: $fs;
+	color: $text;
+	font-style: normal;
+	font-weight: $fw;
+	line-height: $lh;
+}

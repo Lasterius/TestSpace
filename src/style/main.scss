@@ -1,0 +1,253 @@
+// Space block
+.space-block {
+	display: flex;
+	flex-direction: column-reverse;
+	max-width: 100%;
+	height: 495px;
+
+	@media (min-width: 768px) {
+		height: 907px;
+	}
+
+	@media (min-width: 1920px) {
+		height: 960px;
+	}
+
+	background: url('./img/Rectangle 5.png') lightgray 50% / cover no-repeat;
+	border-radius: 30px 30px 0px 0px;
+
+	.space-block__title {
+		@include font(20px, bold, normal);
+		text-transform: uppercase;
+
+		@media (min-width: 768px) {
+			font-size: 38px;
+		}
+
+		@media (min-width: 1920px) {
+			font-size: 42px;
+		}
+	}
+
+	.space-block__parag {
+		@include font(14px, normal, 150%);
+		opacity: 0.79;
+
+		@media (min-width: 768px) {
+			font-size: 16px;
+		}
+
+		.space-block__parag_sm {
+			@media (min-width: 768px) {
+				display: none;
+			}
+		}
+
+		.space-block__parag_md {
+			display: none;
+			@media (min-width: 768px) {
+				display: inline;
+			}
+
+			@media (min-width: 1920px) {
+				display: none;
+			}
+		}
+	}
+}
+
+.space-block__request {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 20px;
+	padding: 52px 0 52px 14px;
+
+	@media (min-width: 768px) {
+		padding: 124px 0 76px 49px;
+	}
+
+	@media (min-width: 1920px) {
+		padding: 158px 0 96px 100px;
+	}
+
+	.space-block__svgrequest {
+		@media (min-width: 768px) {
+			width: 282px;
+			height: 60px;
+		}
+		:hover {
+			fill: $btnhvr;
+			cursor: pointer;
+		}
+	}
+
+	.space-block__svgline {
+		margin-left: -15px;
+		@media (min-width: 768px) {
+			width: 24px;
+			height: 60px;
+			margin-left: -18px;
+		}
+	}
+}
+
+.space-block__request_gradient {
+	background: linear-gradient(180deg, rgba(19, 19, 19, 0) 0%, #131313 100%);
+}
+
+// Cards
+.cards {
+	margin: 48px 16px 0 16px;
+	@media (min-width: 768px) {
+		margin: 44px 40px 0 40px;
+	}
+
+	@media (min-width: 1920px) {
+		margin: 134px 100px 0 100px;
+	}
+
+	.cards__title {
+		@include font(20px, bold, normal);
+		text-transform: uppercase;
+		margin-bottom: 30px;
+		@media (min-width: 768px) {
+			margin: 0 0 40px 9px;
+			font-size: 42px;
+		}
+		@media (min-width: 1920px) {
+			margin-bottom: 53px;
+		}
+	}
+
+	.cards__wrapper {
+		display: flex;
+	}
+
+	.cards__list {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.cards__button {
+		display: flex;
+		justify-content: center;
+		margin-top: 18px;
+		margin-bottom: 43px;
+
+		@media (min-width: 768px) {
+			margin-top: 36px;
+			margin-bottom: 156px;
+		}
+
+		@media (min-width: 1920px) {
+			margin-top: 30px;
+			margin-bottom: 256px;
+		}
+	}
+}
+
+.card {
+	height: 620px;
+	background-color: $text;
+	margin-bottom: 20px;
+
+	@media (min-width: 768px) {
+		width: 49%;
+		margin-bottom: 24px;
+	}
+
+	@media (min-width: 1920px) {
+		width: 19%;
+		margin-bottom: 30px;
+	}
+
+	.card__img {
+		height: 185px;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+.wrapper {
+	padding: 30px;
+	height: 435px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.wrapper__randomTitle {
+		font-family: 'Mulish', sans-serif;
+		@include font(14px, 700, 26px);
+		color: $cardsclr;
+		letter-spacing: 1.5px;
+		text-transform: uppercase;
+		margin: 0;
+	}
+
+	.wrapper__title {
+		@include font(16px, normal, 26px);
+		color: $cardsclr;
+		&:first-letter {
+			text-transform: uppercase;
+		}
+	}
+
+	.wrapper__body {
+		@include font(14px, 400, 24px);
+		color: #666;
+
+		&:first-letter {
+			text-transform: uppercase;
+		}
+	}
+
+	.wrapper__posted {
+		@include font(12px, normal, 24px);
+		color: $cardsclr;
+	}
+
+	.wrapper__button {
+		background-color: $cardsclr;
+		width: 100%;
+		height: 50px;
+		:hover {
+			cursor: pointer;
+			background-color: $btnhvr;
+			transition: all 0.5s ease;
+			transform: scale(1.01);
+			color: $cardsclr;
+			box-shadow: 4px 4px 2px 1px rgb(195, 194, 194);
+		}
+
+		a {
+			font-family: 'Mulish', sans-serif;
+			text-decoration: none;
+			@include font(14px, 600, normal);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+.cards__button {
+	:hover {
+		fill: $btnhvr;
+		cursor: pointer;
+		transition: all 0.5s ease;
+	}
+
+	.cards__svgline {
+		margin-left: -15px;
+	}
+}
