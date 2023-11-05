@@ -12,8 +12,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.15.0
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build-prod
+
       - name: Deploy to GitHub Pages
         run: |
-          git subtree push --prefix dist origin gh-pages
+          git config --global user.email "${GIT_USER_EMAIL}"
+          git config --global user.name "${GIT_USER_NAME}"
+          git subtree split --prefix dist -b gh-pages
+          git push -f origin gh-pages:gh-pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
+          GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
+          GIT_USER_NAME: ${{ secrets.GIT_USER_NAME }}
