@@ -27,11 +27,12 @@ jobs:
         run: |
           git config --global user.email "${GIT_USER_EMAIL}"
           git config --global user.name "${GIT_USER_NAME}"
-          git checkout -b gh-pages || true
+          git checkout main
+          git branch -D gh-pages || true
+          mv dist/* .
           git add .
           git commit -m "Deploy to GitHub Pages"
-          git subtree split --prefix dist -b gh-pages
-          git push -f origin gh-pages:gh-pages
+          git push origin main
         env:
           GH_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
           GIT_USER_EMAIL: ${{ secrets.GIT_USER_EMAIL }}
