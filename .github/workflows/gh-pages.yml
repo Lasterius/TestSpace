@@ -16,4 +16,4 @@ jobs:
         run: |
           git subtree push --prefix dist origin gh-pages
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_PAGES_TOKEN }}
